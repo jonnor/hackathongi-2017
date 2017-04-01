@@ -1,0 +1,14 @@
+topic: 'jonnor_hackathongi-2017/FormatAction'
+cases:
+-
+  name: 'all params'
+  assertion: 'should fire'
+  inputs:
+    gateway: 'http://google.com'
+    params: {}
+    command: 'timestamp'
+    device: 'timeserver'
+  expect:
+    out:
+      equals: { url: 'fooo' }
+

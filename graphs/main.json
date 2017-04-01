@@ -1,9 +1,219 @@
 {
-  "processes": {
-    "noop": {
-      "component": "core/Repeat"
-    }
-  },
-  "connections": [],
-  "caseSensitive": false
+    "caseSensitive": false,
+    "properties": {
+        "name": "main",
+        "environment": {
+            "type": "noflo-nodejs"
+        },
+        "icon": ""
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "core/Output_zuoh8": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "Output",
+                "x": 72,
+                "y": 36,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Kick_yciq8": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "Kick",
+                "x": -216,
+                "y": 36,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Kick_47i6l": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "Kick",
+                "x": -216,
+                "y": -72,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "jonnor_hackathongi-2017/MakeRequest_6p57c": {
+            "component": "jonnor_hackathongi-2017/MakeRequest",
+            "metadata": {
+                "label": "MakeRequest",
+                "x": -72,
+                "y": -36,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Repeat_3fo29": {
+            "component": "core/Repeat",
+            "metadata": {
+                "label": "Repeat",
+                "x": -288,
+                "y": 180,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Kick_g2car": {
+            "component": "core/Kick",
+            "metadata": {
+                "label": "Kick",
+                "x": -432,
+                "y": 180,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "jonnor_hackathongi-2017/FormatAction_6ywj9": {
+            "component": "jonnor_hackathongi-2017/FormatAction",
+            "metadata": {
+                "label": "FormatAction",
+                "x": -144,
+                "y": 180,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "core/Kick_47i6l",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "jonnor_hackathongi-2017/MakeRequest_6p57c",
+                "port": "url"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_yciq8",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "jonnor_hackathongi-2017/MakeRequest_6p57c",
+                "port": "url"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "jonnor_hackathongi-2017/MakeRequest_6p57c",
+                "port": "body"
+            },
+            "tgt": {
+                "process": "core/Output_zuoh8",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "jonnor_hackathongi-2017/MakeRequest_6p57c",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Output_zuoh8",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Kick_g2car",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Repeat_3fo29",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "core/Repeat_3fo29",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "jonnor_hackathongi-2017/FormatAction_6ywj9",
+                "port": "gateway"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "jonnor_hackathongi-2017/FormatAction_6ywj9",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Output_zuoh8",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "jonnor_hackathongi-2017/FormatAction_6ywj9",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Output_zuoh8",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "data": "http://google.com",
+            "tgt": {
+                "process": "core/Kick_47i6l",
+                "port": "data"
+            }
+        },
+        {
+            "data": "http://192.168.2.18:8888/public/devices/timeserver/cmds/timestamp",
+            "tgt": {
+                "process": "core/Kick_yciq8",
+                "port": "data"
+            }
+        },
+        {
+            "data": "http://192.168.2.18:8888/public",
+            "tgt": {
+                "process": "core/Kick_g2car",
+                "port": "data"
+            }
+        },
+        {
+            "data": {},
+            "tgt": {
+                "process": "jonnor_hackathongi-2017/FormatAction_6ywj9",
+                "port": "params"
+            }
+        },
+        {
+            "data": "timeserver",
+            "tgt": {
+                "process": "jonnor_hackathongi-2017/FormatAction_6ywj9",
+                "port": "device"
+            }
+        },
+        {
+            "data": "timestamp",
+            "tgt": {
+                "process": "jonnor_hackathongi-2017/FormatAction_6ywj9",
+                "port": "command"
+            }
+        }
+    ]
 }
