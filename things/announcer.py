@@ -20,7 +20,7 @@ def say():
     process.stdin.write(text)
     process.communicate()[0]
     process.stdin.close()
-    return
+    return "I said: '%s'" % (text,)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5002)
