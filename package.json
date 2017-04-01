@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "noflo-nodejs --register=false"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
     "noflo": "^0.8.3",
     "noflo-core": "^0.4.0",
     "noflo-nodejs": "^0.8.1",
-    "noflo-strings": "^0.3.0"
+    "noflo-strings": "^0.3.0",
+    "request": "^2.81.0"
   }
 }

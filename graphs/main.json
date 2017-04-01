@@ -1,0 +1,9 @@
+{
+  "processes": {
+    "noop": {
+      "component": "core/Repeat"
+    }
+  },
+  "connections": [],
+  "caseSensitive": false
+}
