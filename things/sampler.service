@@ -1,0 +1,11 @@
+[Unit]
+Description=A text-to-speech announcer on HTTP
+ConditionPathExists=|/usr/bin
+After=network.target
+
+[Service]
+User=drone
+WorkingDirectory=/home/drone/hackathongi-2017
+ExecStart=/usr/bin/python2 things/sampler.py
+RestartSec=5
+Restart=always
