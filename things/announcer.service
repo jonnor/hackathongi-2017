@@ -4,8 +4,8 @@ ConditionPathExists=|/usr/bin
 After=network.target
 
 [Service]
-Environment=MSGFLO_BROKER=mqtt://localhost
-WorkingDirectory=/home/jon/projects/hackathongi-2017
+User=drone
+WorkingDirectory=/home/drone/hackathongi-2017
 ExecStart=/usr/bin/python2 things/announcer.py
 RestartSec=5
 Restart=always
