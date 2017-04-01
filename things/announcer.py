@@ -11,11 +11,12 @@ app = Flask(__name__)
 # Announcer
 @app.route("/cmds/say")
 def say():
-    text = request.args.get('what')
-    if not text:
-        text = 'Error. You must specify WHAT to say using the "what" parameter'
-    args = ['flite']
+    text = request.args.get('what', 'Error. You must specify WHAT to say using the "what" parameter')
+    speed = request.args.get('speed', '175')
+    voice = request.args.get('voice', 'spanish')
+    amplitude = request.args.get('volume', '100')
 
+    args = ['espeak', '-s', speed, '-v', voice, '-a', amplitude]
     process = subprocess.Popen(args, stdin=subprocess.PIPE, shell=False)
     process.stdin.write(text)
     process.communicate()[0]
