@@ -1,0 +1,25 @@
+{
+  "name": "hackathongi-2017",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonnor/hackathongi-2017.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonnor/hackathongi-2017/issues"
+  },
+  "homepage": "https://github.com/jonnor/hackathongi-2017#readme",
+  "dependencies": {
+    "noflo": "^0.8.3",
+    "noflo-core": "^0.4.0",
+    "noflo-nodejs": "^0.8.1",
+    "noflo-strings": "^0.3.0"
+  }
+}
